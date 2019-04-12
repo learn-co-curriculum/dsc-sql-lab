@@ -9,7 +9,7 @@ In this lesson, we'll run through some practice questions to refresh our knowled
 
 You will be able to:
 
-
+- Practice your SQL knowledge
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ As in previous labs, we'll make use of the `sqlite3` library as well as `pandas`
 
 We'll start by loading both libraries and connecting to the database we'll be using for this lab, `data.sqlite`. You may remember this database from a previous lab. As a refresher, here's the ERD diagram for this database: 
 
-<img src='images/Database-schema.png'>
+<img src='images/Database-Schema.png'>
 
 In the cell below:
 
