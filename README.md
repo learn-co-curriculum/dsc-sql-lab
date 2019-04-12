@@ -8,7 +8,7 @@ In this lesson, we'll run through some practice questions to refresh our knowled
 ## Objectives
 
 You will be able to:
-
+- Practice your SQL knowledge
 
 
 ## Getting Started
