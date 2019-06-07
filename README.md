@@ -38,7 +38,7 @@ c = conn.cursor()
 
 Now, let's review basic SQL queries. In the cell below:
 
-* Write a query that gets the first name, last name, phone number, and address for all customers in California with a credit limit greater than 25000.00. 
+* Write a query that gets the first name, last name, phone number, address, and credit limit for all customers in California with a credit limit greater than 25000.00. 
 
 
 ```python
@@ -413,7 +413,7 @@ df.head()
 
 ## HAVING and ORDER BY
 
-Now, repeat the last query, but only get orders from customers that have a quantityOrdered value greater than 30. Sort the rows in ascending order by the quantity ordered. 
+Now, repeat the last query, but only get orders from customers that have a quantityOrdered value greater than 10. Sort the rows in ascending order by the quantity ordered. 
 
 **_Hint_**: For this one, you'll need to make use of HAVING, GROUP BY, and ORDER BY--make sure you get the order of them correct!
 
