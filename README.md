@@ -42,12 +42,21 @@ Now, let's review basic SQL queries. In the cell below:
 
 
 ```python
-c.execute("""SELECT contactFirstName, contactLastName, phone, addressLine1, creditLimit FROM customers WHERE state == 'CA' 
-and CreditLimit > 25000.00""")
+c.execute("""SELECT contactFirstName, contactLastName,
+                    phone, addressLine1,
+                    creditLimit
+                    FROM customers 
+                    WHERE state == 'CA' 
+                          and creditLimit > 25000;
+          """)
 df = pd.DataFrame(c.fetchall())
 df.columns = [x[0] for x in c.description]
+print(len(df))
 df
 ```
+
+    10
+
 
 
 
@@ -84,7 +93,7 @@ df
       <td>Nelson</td>
       <td>4155551450</td>
       <td>5677 Strong St.</td>
-      <td>210500.00</td>
+      <td>210500.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -92,7 +101,7 @@ df
       <td>Murphy</td>
       <td>6505555787</td>
       <td>5557 North Pendale Street</td>
-      <td>64600.00</td>
+      <td>64600.0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -100,7 +109,7 @@ df
       <td>Hashimoto</td>
       <td>6505556809</td>
       <td>9408 Furth Circle</td>
-      <td>84600.00</td>
+      <td>84600.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -108,63 +117,55 @@ df
       <td>Young</td>
       <td>6265557265</td>
       <td>78934 Hillside Dr.</td>
-      <td>90700.00</td>
+      <td>90700.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Mary</td>
-      <td>Young</td>
-      <td>3105552373</td>
-      <td>4097 Douglas Av.</td>
-      <td>11000.00</td>
-    </tr>
-    <tr>
-      <th>5</th>
       <td>Valarie</td>
       <td>Thompson</td>
       <td>7605558146</td>
       <td>361 Furth Circle</td>
-      <td>105000.00</td>
+      <td>105000.0</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>5</th>
       <td>Julie</td>
       <td>Brown</td>
       <td>6505551386</td>
       <td>7734 Strong St.</td>
-      <td>105000.00</td>
+      <td>105000.0</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>6</th>
       <td>Brian</td>
       <td>Chandler</td>
       <td>2155554369</td>
       <td>6047 Douglas Av.</td>
-      <td>57700.00</td>
+      <td>57700.0</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>7</th>
       <td>Sue</td>
       <td>Frick</td>
       <td>4085553659</td>
       <td>3086 Ingle Ln.</td>
-      <td>77600.00</td>
+      <td>77600.0</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>8</th>
       <td>Steve</td>
       <td>Thompson</td>
       <td>3105553722</td>
       <td>3675 Furth Circle</td>
-      <td>55400.00</td>
+      <td>55400.0</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>9</th>
       <td>Sue</td>
       <td>Taylor</td>
       <td>4155554312</td>
       <td>2793 Furth Circle</td>
-      <td>60300.00</td>
+      <td>60300.0</td>
     </tr>
   </tbody>
 </table>
@@ -363,43 +364,43 @@ df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>Atelier graphique</td>
-      <td>103</td>
-      <td>10123</td>
+      <td>Online Diecast Creations Co.</td>
+      <td>363</td>
+      <td>10100</td>
       <td>Shipped</td>
-      <td>26</td>
+      <td>22</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Atelier graphique</td>
-      <td>103</td>
-      <td>10123</td>
+      <td>Online Diecast Creations Co.</td>
+      <td>363</td>
+      <td>10100</td>
       <td>Shipped</td>
-      <td>34</td>
+      <td>30</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Atelier graphique</td>
-      <td>103</td>
-      <td>10123</td>
+      <td>Online Diecast Creations Co.</td>
+      <td>363</td>
+      <td>10100</td>
       <td>Shipped</td>
-      <td>46</td>
+      <td>49</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Atelier graphique</td>
-      <td>103</td>
-      <td>10123</td>
+      <td>Online Diecast Creations Co.</td>
+      <td>363</td>
+      <td>10100</td>
       <td>Shipped</td>
       <td>50</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Atelier graphique</td>
-      <td>103</td>
-      <td>10298</td>
+      <td>Blauer See Auto, Co.</td>
+      <td>128</td>
+      <td>10101</td>
       <td>Shipped</td>
-      <td>32</td>
+      <td>25</td>
     </tr>
   </tbody>
 </table>
