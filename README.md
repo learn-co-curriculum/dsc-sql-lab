@@ -414,17 +414,24 @@ df.head()
 
 ## HAVING and ORDER BY
 
-Now, repeat the last query, but only get orders from customers that have a quantityOrdered value greater than 10. Sort the rows in ascending order by the quantity ordered. 
+Now, return the customerName, customrerNumber, productName, productCode and total number ordered for any product a customer has bought 10 or more of cumulatively. Sort the rows in descending order by the quantity ordered. 
 
 **_Hint_**: For this one, you'll need to make use of HAVING, GROUP BY, and ORDER BY--make sure you get the order of them correct!
 
 
 ```python
-c.execute("""SELECT c.customerName, c.customerNumber, o.orderNumber, o.status, od.quantityOrdered FROM Customers c JOIN Orders o 
-ON c.customerNumber = o.customerNumber JOIN OrderDetails od ON od.orderNumber = o.orderNumber
-GROUP BY od.quantityOrdered
-HAVING SUM(od.quantityOrdered) > 10 
-ORDER BY od.quantityOrdered ASC""")
+c.execute("""SELECT c.customerName, c.customerNumber, p.productName,
+                    p.productCode, sum(od.quantityOrdered) as TotalOrdered
+                    FROM Customers c JOIN Orders o 
+                                     ON c.customerNumber = o.customerNumber
+                                     JOIN OrderDetails od
+                                     ON od.orderNumber = o.orderNumber
+                                     JOIN Products p
+                                     USING(productCode)
+             GROUP BY c.customerNumber, productCode
+             HAVING SUM(od.quantityOrdered) > 10 
+             ORDER BY TotalOrdered DESC"""
+         )
 df = pd.DataFrame(c.fetchall())
 df.columns = [x[0] for x in c.description]
 df.head()
@@ -453,51 +460,51 @@ df.head()
       <th></th>
       <th>customerName</th>
       <th>customerNumber</th>
-      <th>orderNumber</th>
-      <th>status</th>
-      <th>quantityOrdered</th>
+      <th>productName</th>
+      <th>productCode</th>
+      <th>TotalOrdered</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Extreme Desk Decorations, Ltd</td>
-      <td>412</td>
-      <td>10418</td>
-      <td>Shipped</td>
-      <td>10</td>
+      <td>Euro+ Shopping Channel</td>
+      <td>141</td>
+      <td>1992 Ferrari 360 Spider red</td>
+      <td>S18_3232</td>
+      <td>308</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Tekni Collectables Inc.</td>
-      <td>328</td>
-      <td>10401</td>
-      <td>On Hold</td>
-      <td>11</td>
+      <td>Euro+ Shopping Channel</td>
+      <td>141</td>
+      <td>1958 Chevy Corvette Limited Edition</td>
+      <td>S24_2840</td>
+      <td>245</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Salzburg Collectables</td>
-      <td>382</td>
-      <td>10419</td>
-      <td>Shipped</td>
-      <td>12</td>
+      <td>Euro+ Shopping Channel</td>
+      <td>141</td>
+      <td>1970 Dodge Coronet</td>
+      <td>S24_1444</td>
+      <td>197</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>The Sharp Gifts Warehouse</td>
-      <td>450</td>
-      <td>10407</td>
-      <td>On Hold</td>
-      <td>13</td>
+      <td>Euro+ Shopping Channel</td>
+      <td>141</td>
+      <td>1957 Chevy Pickup</td>
+      <td>S12_4473</td>
+      <td>183</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Tokyo Collectables, Ltd</td>
-      <td>398</td>
-      <td>10408</td>
-      <td>Shipped</td>
-      <td>15</td>
+      <td>Euro+ Shopping Channel</td>
+      <td>141</td>
+      <td>2002 Chevy Corvette</td>
+      <td>S24_3432</td>
+      <td>174</td>
     </tr>
   </tbody>
 </table>
