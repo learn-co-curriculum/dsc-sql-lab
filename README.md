@@ -25,11 +25,6 @@ In the cell below:
 * Establish a connection to the database `data.sqlite`
 * Get the `cursor` from the connection and store it in the variable `c`.
 
-
-```
-
-```
-
 ## Basic Queries
 
 Now, let's review basic SQL queries. In the cell below:
@@ -54,11 +49,6 @@ df
 
 Next, write a query that get sthe average credit limit per state.
 
-
-```
-
-```
-
 #### Expected Output
 
 <img src='images/expected-output-2.png'>
@@ -67,25 +57,15 @@ Next, write a query that get sthe average credit limit per state.
 
 Now, write a query that uses JOIN statements to get the customer name, customer number, order number, status, and quantity ordered. Print only the head of this DataFrame. 
 
-
-```
-
-```
-
 #### Expected Output
 
 <img src='images/expected-output-3.png'>
 
 ## HAVING and ORDER BY
 
-Now, repeat the last query, but only get orders from customers that have a quantityOrdered value greater than 10. Sort the rows in ascending order by the quantity ordered. 
+Now, return the customerName, customrerNumber, productName, productCode and total number ordered for any product a customer has bought 10 or more of cumulatively. Sort the rows in descending order by the quantity ordered. 
 
 **_Hint_**: For this one, you'll need to make use of HAVING, GROUP BY, and ORDER BY--make sure you get the order of them correct!
-
-
-```
-
-```
 
 #### Expected Output
 
@@ -94,11 +74,6 @@ Now, repeat the last query, but only get orders from customers that have a quant
 ## Subqueries
 
 Finally, get the first name, last name, employee number, and office code for employees from an office with less than 5 employees. 
-
-
-```
-
-```
 
 #### Expected Output
 
