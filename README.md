@@ -410,7 +410,7 @@ df.head()
 
 #### Expected Output
 
-<img src='images/expected-output-3.png'>
+<img src='images/joins.png'>
 
 ## HAVING and ORDER BY
 
@@ -514,7 +514,7 @@ df.head()
 
 #### Expected Output
 
-<img src='images/expected-output-4.png'>
+<img src='images/having_order.png'>
 
 ## Subqueries
 
