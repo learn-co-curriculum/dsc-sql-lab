@@ -59,7 +59,7 @@ Now, write a query that uses JOIN statements to get the customer name, customer 
 
 #### Expected Output
 
-<img src='images/expected-output-3.png'>
+<img src='images/joins.png'>
 
 ## HAVING and ORDER BY
 
@@ -69,7 +69,7 @@ Now, return the customerName, customrerNumber, productName, productCode and tota
 
 #### Expected Output
 
-<img src='images/expected-output-4.png'>
+<img src='images/having_order.png'>
 
 ## Subqueries
 
