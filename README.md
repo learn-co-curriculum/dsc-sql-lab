@@ -429,7 +429,7 @@ c.execute("""SELECT c.customerName, c.customerNumber, p.productName,
                                      JOIN Products p
                                      USING(productCode)
              GROUP BY c.customerNumber, productCode
-             HAVING SUM(od.quantityOrdered) > 10 
+             HAVING SUM(od.quantityOrdered) >= 10 
              ORDER BY TotalOrdered DESC"""
          )
 df = pd.DataFrame(c.fetchall())
