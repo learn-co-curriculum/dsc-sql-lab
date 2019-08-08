@@ -26,12 +26,12 @@ In the cell below:
 * Get the `cursor` from the connection and store it in the variable `c`.
 
 
-```
+```python
 
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 import pandas as pd
 import sqlite3
@@ -47,7 +47,7 @@ Now, let's review basic SQL queries. In the cell below:
 * Write a query that gets the first name, last name, phone number, address, and credit limit for all customers in California with a credit limit greater than 25000.00. 
 
 
-```
+```python
 # For the first query, the boilerplate for getting 
 #the query into a dataframe has been provided for you
 c.execute(""" """)
@@ -57,7 +57,7 @@ df
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 c.execute("""SELECT contactFirstName, contactLastName,
                     phone, addressLine1,
@@ -199,12 +199,12 @@ df
 Next, write a query that get sthe average credit limit per state.
 
 
-```
+```python
 
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 c.execute("""SELECT state, AVG(creditLimit) from customers GROUP BY state""")
 df = pd.DataFrame(c.fetchall())
@@ -348,12 +348,12 @@ df
 Now, write a query that uses JOIN statements to get the customer name, customer number, order number, status, and quantity ordered. Print only the head of this DataFrame. 
 
 
-```
+```python
 
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 c.execute("""SELECT c.customerName, c.customerNumber, o.orderNumber, o.status, od.quantityOrdered FROM Customers c JOIN Orders o 
 ON c.customerNumber = o.customerNumber JOIN OrderDetails od ON od.orderNumber = o.orderNumber""")
@@ -448,12 +448,12 @@ Now, return the customerName, customrerNumber, productName, productCode and tota
 **_Hint_**: For this one, you'll need to make use of HAVING, GROUP BY, and ORDER BY--make sure you get the order of them correct!
 
 
-```
+```python
 
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 c.execute("""SELECT c.customerName, c.customerNumber, p.productName,
                     p.productCode, sum(od.quantityOrdered) as TotalOrdered
@@ -464,7 +464,7 @@ c.execute("""SELECT c.customerName, c.customerNumber, p.productName,
                                      JOIN Products p
                                      USING(productCode)
              GROUP BY c.customerNumber, productCode
-             HAVING SUM(od.quantityOrdered) > 10 
+             HAVING SUM(od.quantityOrdered) >= 10 
              ORDER BY TotalOrdered DESC"""
          )
 df = pd.DataFrame(c.fetchall())
@@ -556,12 +556,12 @@ df.head()
 Finally, get the first name, last name, employee number, and office code for employees from an office with less than 5 employees. 
 
 
-```
+```python
 
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 c.execute("""select lastName, firstName, employeeNumber, officeCode
                     FROM employees
