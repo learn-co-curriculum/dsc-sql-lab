@@ -9,11 +9,14 @@ In this lesson, we'll run through some practice questions to refresh your knowle
 
 You will be able to:
 
-- Practice your SQL knowledge
+* Use `Group By` statements in SQL to apply aggregate functions like: `COUNT`, `MAX`, `MIN`, and `SUM`
+* Decide and perform whichever type of join is best for retrieving desired data
+* Use the `HAVING` clause to compare different aggregates
+* Write subqueries to decompose complex queries
 
 ## Getting Started
 
-As in previous labs, we'll make use of the `sqlite3` library as well as `pandas`. By combining them, we'll be able to write queries as Python strings, and make sure that the results are always returned as a pandas DataFrame. 
+As in previous labs, we'll make use of the `sqlite3` library as well as Pandas. By combining them, we'll be able to write queries as Python strings, and make sure that the results are always returned as a Pandas DataFrame. 
 
 We'll start by loading both libraries and connecting to the database we'll be using for this lab, `data.sqlite`. You may remember this database from a previous lab. As a refresher, here's the ERD diagram for this database: 
 
