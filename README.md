@@ -9,7 +9,7 @@ In this lesson, we'll run through some practice questions to refresh your knowle
 
 You will be able to:
 
-- Use `Group By` statements in SQL to apply aggregate functions like: `COUNT`, `MAX`, `MIN`, and `SUM`
+- Use `GROUP BY` statements in SQL to apply aggregate functions like: `COUNT`, `MAX`, `MIN`, and `SUM`
 - Decide and perform whichever type of join is best for retrieving desired data
 - Use the `HAVING` clause to compare different aggregates
 - Write subqueries to decompose complex queries
