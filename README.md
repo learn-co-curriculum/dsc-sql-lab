@@ -67,7 +67,7 @@ c.execute("""SELECT contactFirstName, contactLastName,
                     creditLimit
                     FROM customers 
                     WHERE state == 'CA' 
-                          and creditLimit > 25000;
+                          AND creditLimit > 25000;
           """)
 df = pd.DataFrame(c.fetchall())
 df.columns = [x[0] for x in c.description]
@@ -113,7 +113,7 @@ df
       <td>Nelson</td>
       <td>4155551450</td>
       <td>5677 Strong St.</td>
-      <td>210500.0</td>
+      <td>210500</td>
     </tr>
     <tr>
       <th>1</th>
@@ -121,7 +121,7 @@ df
       <td>Murphy</td>
       <td>6505555787</td>
       <td>5557 North Pendale Street</td>
-      <td>64600.0</td>
+      <td>64600</td>
     </tr>
     <tr>
       <th>2</th>
@@ -129,7 +129,7 @@ df
       <td>Hashimoto</td>
       <td>6505556809</td>
       <td>9408 Furth Circle</td>
-      <td>84600.0</td>
+      <td>84600</td>
     </tr>
     <tr>
       <th>3</th>
@@ -137,7 +137,7 @@ df
       <td>Young</td>
       <td>6265557265</td>
       <td>78934 Hillside Dr.</td>
-      <td>90700.0</td>
+      <td>90700</td>
     </tr>
     <tr>
       <th>4</th>
@@ -145,7 +145,7 @@ df
       <td>Thompson</td>
       <td>7605558146</td>
       <td>361 Furth Circle</td>
-      <td>105000.0</td>
+      <td>105000</td>
     </tr>
     <tr>
       <th>5</th>
@@ -153,7 +153,7 @@ df
       <td>Brown</td>
       <td>6505551386</td>
       <td>7734 Strong St.</td>
-      <td>105000.0</td>
+      <td>105000</td>
     </tr>
     <tr>
       <th>6</th>
@@ -161,7 +161,7 @@ df
       <td>Chandler</td>
       <td>2155554369</td>
       <td>6047 Douglas Av.</td>
-      <td>57700.0</td>
+      <td>57700</td>
     </tr>
     <tr>
       <th>7</th>
@@ -169,7 +169,7 @@ df
       <td>Frick</td>
       <td>4085553659</td>
       <td>3086 Ingle Ln.</td>
-      <td>77600.0</td>
+      <td>77600</td>
     </tr>
     <tr>
       <th>8</th>
@@ -177,7 +177,7 @@ df
       <td>Thompson</td>
       <td>3105553722</td>
       <td>3675 Furth Circle</td>
-      <td>55400.0</td>
+      <td>55400</td>
     </tr>
     <tr>
       <th>9</th>
@@ -185,7 +185,7 @@ df
       <td>Taylor</td>
       <td>4155554312</td>
       <td>2793 Furth Circle</td>
-      <td>60300.0</td>
+      <td>60300</td>
     </tr>
   </tbody>
 </table>
@@ -209,7 +209,9 @@ Next, write a query that gets the average credit limit per state.
 
 ```python
 # __SOLUTION__ 
-c.execute("""SELECT state, AVG(creditLimit) from customers GROUP BY state""")
+c.execute("""SELECT state, AVG(creditLimit) 
+             FROM customers 
+             GROUP BY state;""")
 df = pd.DataFrame(c.fetchall())
 df.columns = [x[0] for x in c.description]
 df
@@ -358,8 +360,11 @@ Now, write a query that uses JOIN statements to get the customer name, customer 
 
 ```python
 # __SOLUTION__ 
-c.execute("""SELECT c.customerName, c.customerNumber, o.orderNumber, o.status, od.quantityOrdered FROM Customers c JOIN Orders o 
-ON c.customerNumber = o.customerNumber JOIN OrderDetails od ON od.orderNumber = o.orderNumber""")
+c.execute("""SELECT c.customerName, c.customerNumber, o.orderNumber, o.status, od.quantityOrdered 
+             FROM Customers c JOIN Orders o 
+                              ON c.customerNumber = o.customerNumber 
+                              JOIN OrderDetails od 
+                              ON od.orderNumber = o.orderNumber;""")
 df = pd.DataFrame(c.fetchall())
 df.columns = [x[0] for x in c.description]
 df.head()
@@ -396,43 +401,43 @@ df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>Online Diecast Creations Co.</td>
-      <td>363</td>
-      <td>10100</td>
+      <td>Atelier graphique</td>
+      <td>103</td>
+      <td>10123</td>
       <td>Shipped</td>
-      <td>22</td>
+      <td>26</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Online Diecast Creations Co.</td>
-      <td>363</td>
-      <td>10100</td>
+      <td>Atelier graphique</td>
+      <td>103</td>
+      <td>10123</td>
       <td>Shipped</td>
-      <td>30</td>
+      <td>34</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Online Diecast Creations Co.</td>
-      <td>363</td>
-      <td>10100</td>
+      <td>Atelier graphique</td>
+      <td>103</td>
+      <td>10123</td>
       <td>Shipped</td>
-      <td>49</td>
+      <td>46</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Online Diecast Creations Co.</td>
-      <td>363</td>
-      <td>10100</td>
+      <td>Atelier graphique</td>
+      <td>103</td>
+      <td>10123</td>
       <td>Shipped</td>
       <td>50</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Blauer See Auto, Co.</td>
-      <td>128</td>
-      <td>10101</td>
+      <td>Atelier graphique</td>
+      <td>103</td>
+      <td>10298</td>
       <td>Shipped</td>
-      <td>25</td>
+      <td>32</td>
     </tr>
   </tbody>
 </table>
@@ -442,7 +447,7 @@ df.head()
 
 #### Expected Output
 
-<img src='images/joins.png'>
+<img src='images/joins.png' width='500' height='600'> 
 
 ## HAVING and ORDER BY
 
@@ -468,7 +473,7 @@ c.execute("""SELECT c.customerName, c.customerNumber, p.productName,
                                      USING(productCode)
              GROUP BY c.customerNumber, productCode
              HAVING SUM(od.quantityOrdered) >= 10 
-             ORDER BY TotalOrdered DESC"""
+             ORDER BY TotalOrdered DESC;"""
          )
 df = pd.DataFrame(c.fetchall())
 df.columns = [x[0] for x in c.description]
@@ -566,17 +571,16 @@ Finally, get the first name, last name, employee number, and office code for emp
 
 ```python
 # __SOLUTION__ 
-c.execute("""select lastName, firstName, employeeNumber, officeCode
+c.execute("""SELECT lastName, firstName, employeeNumber, officeCode
                     FROM employees
                     WHERE officeCode IN (SELECT officeCode 
                                                 FROM offices 
                                                 JOIN employees
                                                 USING(officeCode)
-                                                GROUP BY 1
+                                                GROUP BY officeCode
                                                 HAVING COUNT(employeeNumber) < 5
                                          );
-          """
-         )
+          """)
 df = pd.DataFrame(c.fetchall())
 df.columns = [x[0] for x in c.description]
 df.head()
