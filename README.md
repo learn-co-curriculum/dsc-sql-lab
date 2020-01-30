@@ -77,7 +77,7 @@ Now, write a query that uses JOIN statements to get the customer name, customer 
 
 #### Expected Output
 
-<img src='images/joins.png'>
+<img src='images/joins.png' width='500' height='600'> 
 
 ## HAVING and ORDER BY
 
