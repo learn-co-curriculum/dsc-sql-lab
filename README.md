@@ -40,9 +40,6 @@ As in previous labs, we'll make use of the `sqlite3` library as well as `pandas`
 
 In the cell below, we:
 
-* Import the necessary libraries, `pandas` and `sqlite3`
-* Establish a connection to the database `data.sqlite`, called `conn`
-
 
 ```python
 import sqlite3
