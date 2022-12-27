@@ -1245,7 +1245,7 @@ assert list(q6_result.iloc[0]) == ['Euro+ Shopping Channel', 141, 715738.98]
 
 ### Query 7: Products that Have Been Purchased 10 or More Times
 
-Write a query that, for each customer, finds all of the products that they have purchased 10 or more times cumulatively. For each record, return  the customer name, customer number, product name, product code, and total number ordered. Sort the rows in descending order by the quantity ordered.
+Write a query that, for each customer, finds all of the products that they have purchased 10 or more times cumulatively. For each record, return  the customer name, customer number, product name, product code, and total number ordered. Sort the rows in ascending order by the quantity ordered.
 
 The five columns selected should be `customerName`, `customerNumber`, `productName`, `productCode`, and `total_ordered`, where `total_ordered` is the sum of all quantities of that product ordered by that customer.
 
@@ -1482,7 +1482,7 @@ assert list(q7_result.iloc[0]) == ['Petit Auto', 314, '1913 Ford Model T Speedst
 
 ### Query 8: Employees in Offices with Fewer than Five Employees
 
-Finally, get the first name, last name, employee number, and office code for employees from offices with fewer than 5 employees.
+Finally, get the last name, first name, employee number, and office code for employees from offices with fewer than 5 employees.
 
 ***Hint:*** Use a subquery to find the relevant offices.
 
