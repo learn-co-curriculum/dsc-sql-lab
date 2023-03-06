@@ -236,9 +236,11 @@ assert round(first_result_list[1], 3) == round(83854.54545454546, 3)
 
 ### Query 5: Joining Customers and Orders
 
-Write a query that uses `JOIN` statements to get the customer name, order number, and status for all orders. Refer to the ERD above to understand which tables contain these pieces of information, and the relationship between these tables.
+Write a query that uses `JOIN` statements to get the customer name, order number, and status for all orders. For this example, stick to a simple left-join and avoid using sub-queries. 
 
-We will only display the first 15 results.
+- To ensure that your results will pass, make sure your output resembles the image below, __including the order of the column names__. 
+
+- Refer to the ERD above to understand which tables contain these pieces of information, and the relationship between these tables.
 
 #### Expected Output
 
