@@ -1514,12 +1514,10 @@ SELECT
     officeCode
 FROM employees
 WHERE officeCode IN (
-    SELECT o.officeCode
-    FROM offices o
-        JOIN employees e
-            ON o.officeCode = e.officeCode
-    GROUP BY o.officeCode
-    HAVING COUNT(e.employeeNumber) < 5
+    SELECT officeCode
+    FROM employees
+    GROUP BY officeCode
+    HAVING COUNT(employeeNumber) < 5
 );
 """
 q8_result = pd.read_sql(q8, conn)
