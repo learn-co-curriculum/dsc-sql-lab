@@ -16,7 +16,7 @@ You will be able to:
 
 ## Your Task: Querying a Customer Database
 
-![shelves filled with colorful model cars](images/model_cars.jpg)
+![shelves filled with colorful model cars](https://curriculum-content.s3.amazonaws.com/data-science/images/model_cars.jpg)
 
 Photo by <a href="https://unsplash.com/@bright?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Karen Vardazaryan</a> on <a href="/s/photos/model-car?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
@@ -28,7 +28,7 @@ Your employer makes miniature models of products such as classic cars, motorcycl
 
 You may remember this database from a previous lab. As a refresher, here's the ERD diagram for this database:
 
-<img src='images/Database-Schema.png'>
+<img src='https://curriculum-content.s3.amazonaws.com/data-science/images/Database-Schema.png'>
 
 The queries you are asked to write will become more complex over the course of the lab.
 
@@ -141,7 +141,7 @@ Write a query that gets the contact first name, contact last name, phone number,
 
 #### Expected Output
 
-<img src='images/expected_output_q1.png'>
+<img src='https://curriculum-content.s3.amazonaws.com/data-science/images/expected_output_q1.png'>
 
 
 ```python
@@ -301,7 +301,7 @@ We are looking for customers with names like `"Australian Collectors, Co."` or `
 
 #### Expected Output
 
-<img src='images/expected_output_q2.png'>
+<img src='https://curriculum-content.s3.amazonaws.com/data-science/images/expected_output_q2.png'>
 
 
 ```python
@@ -468,7 +468,7 @@ Here we'll only display the first 10 results.
 
 #### Expected Output
 
-<img src='images/expected_output_q3.png'>
+<img src='https://curriculum-content.s3.amazonaws.com/data-science/images/expected_output_q3.png'>
 
 
 ```python
@@ -642,7 +642,7 @@ The two fields selected should be `state` and `average_credit_limit`, which is t
 
 #### Expected Output
 
-<img src='images/expected_output_q4.png'>
+<img src='https://curriculum-content.s3.amazonaws.com/data-science/images/expected_output_q4.png'>
 
 
 ```python
@@ -759,7 +759,7 @@ Write a query that uses `JOIN` statements to get the customer name, order number
 
 #### Expected Output
 
-<img src='images/expected_output_q5.png'>
+<img src='https://curriculum-content.s3.amazonaws.com/data-science/images/expected_output_q5.png'>
 
 
 ```python
@@ -924,7 +924,7 @@ The three columns selected should be `customerName`, `customerNumber` and `total
 
 #### Expected Output
 
-<img src='images/expected_output_q6.png'>
+<img src='https://curriculum-content.s3.amazonaws.com/data-science/images/expected_output_q6.png'>
 
 
 ```python
@@ -1064,7 +1064,7 @@ The five columns selected should be `customerName`, `customerNumber`, `productNa
 
 #### Expected Output
 
-<img src='images/expected_output_q7.png'>
+<img src='https://curriculum-content.s3.amazonaws.com/data-science/images/expected_output_q7.png'>
 
 
 ```python
@@ -1272,7 +1272,7 @@ Finally, get the last name, first name, employee number, and office code for emp
 
 #### Expected Output
 
-<img src='images/expected_output_q8.png'>
+<img src='https://curriculum-content.s3.amazonaws.com/data-science/images/expected_output_q8.png'>
 
 
 ```python
@@ -1284,12 +1284,10 @@ SELECT
     officeCode
 FROM employees
 WHERE officeCode IN (
-    SELECT o.officeCode
-    FROM offices o
-        JOIN employees e
-            ON o.officeCode = e.officeCode
-    GROUP BY o.officeCode
-    HAVING COUNT(e.employeeNumber) < 5
+    SELECT officeCode
+    FROM employees
+    GROUP BY officeCode
+    HAVING COUNT(employeeNumber) < 5
 );
 """
 q8_result = pd.read_sql(q8, conn)
